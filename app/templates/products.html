@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table class="table table-borderless">
+        <h1>Products</h1>
+        <a class="btn btn-success" href="/add_product">Add Product</a>
+        <hr>
+        <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.product_id }}</td>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td><a class="btn btn-success" href="edit_product/{{product.product_id}}">Edit</a></td>
+                <td>
+                    <form action="{{ url_for('product_blueprint.delete_product',product_id=product.product_id) }}" method=POST>
+                      <input type=hidden name="method" value="DELETE">
+                      <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}

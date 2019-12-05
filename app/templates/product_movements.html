@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table class="table table-borderless">
+        <h1>Make Product Movements</h1>
+        <a class="btn btn-success" href="/add_product_movements">Add Product Movement</a>
+        <hr>
+        <thead>
+            <tr>
+                  <th scope="col">Transaction Id</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">From WareHouse</th>
+                  <th scope="col">To WareHouse</th>
+                  <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movement in movements %}
+            <tr>
+                <td>{{ movement.transaction_id }}</td>
+                <td>{{ movement.product_name }}</td>
+                <td>{{ movement.time }}</td>
+                <td>{{ movement.from_warehouse }}</td>
+                <td>{{ movement.to_warehouse }}</td>
+                <td>{{ movement.quantity }}</td>
+                <td><a class="btn btn-success" href="edit_product_movement/{{movement.transaction_id}}">Edit</a></td>
+                <td>
+                    <form action="{{ url_for('movement_blueprint.delete_movement',transaction_id=movement.transaction_id) }}" method=POST>
+                      <input type=hidden name="method" value="DELETE">
+                      <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}
