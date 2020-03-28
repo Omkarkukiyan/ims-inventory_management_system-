@@ -3,7 +3,7 @@
 An inventory management system where user can add, delete, update products,locations and keep track on your products.
 
 
-<img src="![1](https://user-images.githubusercontent.com/33160289/77818582-95c36680-70f9-11ea-913c-057a785af92f.jpg)">
+![1](https://user-images.githubusercontent.com/33160289/77818582-95c36680-70f9-11ea-913c-057a785af92f.jpg)
 
 
 ![2](https://user-images.githubusercontent.com/33160289/77818595-ad025400-70f9-11ea-8188-cf007233d8ff.jpg)
